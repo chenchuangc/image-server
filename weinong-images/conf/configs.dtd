@@ -1,0 +1,25 @@
+<!ENTITY % Boolean "(false|true)">
+<!ENTITY % True "(true)">
+<!ENTITY % Setting "(validating|useElExpression|ignoreErrorInCommit|ignoreParseError|ignoreNodeNotExistsError|nodelink|dateFormat|valueClass)">
+
+<!ELEMENT config-nodes ((setting)*,(node|import-file|import-dir)*)>
+<!ELEMENT setting EMPTY>
+<!ELEMENT node (value?, node*)>
+<!ELEMENT value (#PCDATA)>
+<!ELEMENT import-file EMPTY>
+<!ELEMENT import-dir EMPTY>
+
+<!ATTLIST setting name %Setting; #REQUIRED> 
+<!ATTLIST setting value CDATA #REQUIRED> 
+
+<!ATTLIST node name CDATA #REQUIRED>
+<!ATTLIST node value CDATA #IMPLIED>
+<!ATTLIST node text CDATA #IMPLIED>
+<!ATTLIST node refrence CDATA #IMPLIED> 
+<!ATTLIST node writeable %Boolean; #IMPLIED> 
+<!ATTLIST node el-disable %True; #IMPLIED>
+
+<!ATTLIST import-file path CDATA #REQUIRED>
+<!ATTLIST import-dir path CDATA #REQUIRED>
+<!ATTLIST import-dir filename-pattern CDATA #IMPLIED>
+

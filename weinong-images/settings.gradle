@@ -1,0 +1,5 @@
+
+include 'yao-util2'
+
+//project(':wnshg-message-bean').projectDir = new File(settingsDir, '../../../java-common/wnshg/wnshg-message-bean')
+project(':yao-util2').projectDir = new File(settingsDir, '../../../../java-common\\yao-project\\yao-util2')

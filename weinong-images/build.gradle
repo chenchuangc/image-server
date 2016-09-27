@@ -1,0 +1,63 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply plugin: 'idea'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    maven {
+        url 'http://192.168.1.100:8081/nexus/content/groups/public/'
+    }
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+dependencies {
+    compile 'commons-collections:commons-collections:2.1'
+    compile 'mysql:mysql-connector-java:5.1.37'
+    compile 'com.google.zxing:core:2.0'
+    compile 'com.alibaba:fastjson:1.1.40'
+
+//    compile('yao:yao-util2:1.1.5-SNAPSHOT') { changing = true }
+    compile('yao:yao-config:1.1.5-SNAPSHOT') { changing = true }
+    compile 'yao:yao-springMVC:1.+'
+
+    compile 'weinong:weinong-consts:1.0.0'
+    compile 'weinong:weinong-user:1.1.4-SNAPSHOT'
+    compile 'weinong:weinong-basedb:1.0.0-SNAPSHOT'
+    compile 'weinong:weinong-util:1.0.0-SNAPSHOT'
+    compile 'weinong:weinong-message-tool:1.1.0-SNAPSHOT'
+    compile 'weinong:weinong-base:1.0.0'
+    compile 'weinong:weinong-web-base:1.1.0-SNAPSHOT'
+    compile 'weinong:weinong-sms-client:1.1.1-SNAPSHOT'
+
+    compile 'org.glassfish.web:jstl-impl:1.2'
+    compile 'weinong:weinong-config:1.0.0-SNAPSHOT'
+
+    compile 'yao:yao-management-tool:1.0.0'
+    compile 'yao:yao-util2:1.+-SNAPSHOT'
+//    compile   project(':yao-util2')
+//    compile project(':wnshg-message-bean')
+    providedCompile 'com.sun.jdk:jce:1.7'
+    providedCompile 'com.sun.jdk:rt:1.7'
+
+    compile fileTree(dir: 'lib', include: '*.jar')
+
+    testCompile 'junit:junit:4.12'
+}
+
+    sourceSets {
+    main.java.srcDirs = ['src']
+    main.resources.srcDirs = ['src','conf']
+        test.java.srcDirs = ['test']
+}
+
+
+webAppDirName = 'WebRoot'
+war{
+    baseName ="ROOT"
+}
+

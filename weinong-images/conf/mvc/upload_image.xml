@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<!-- 包空间 -->
+	<bean class="yao.springmvc.Package" scope="singleton">
+		<property name="parent" ref="defaultPackage" />
+		<property name="actions">
+			<map>
+				<entry key="show_upload_image" value="ShowUploadImageAction" />
+				<entry key="upload_image" value="UploadImageAction" />
+				<entry key="kindeditor_upload_image" value="KindEditorUploadImageAction" />
+                <entry key="upload_image_weixin" value="UploadImageToWeixinAction" />
+				<entry key="show_upload_inner_image" value="ShowUploadInnerImageAction" />
+				<entry key="upload_image_inner" value="UploadImageToInnerAction" />
+				<entry key="list_images" value="ListImagesAction"/>
+				<entry key="upload_images" value="UpLoadImageActionInheader"/>
+				<entry key="upload_webp_images" value="UploadSupportWebpAction"/>
+				<entry key="upload_body_images" value="PostBodyImageAction"/>
+				<!--
+				<entry key="upload_webp_images_j" value="UploadSupportWebpAction3"/>
+				-->
+				<entry key="upload_webp_images_j" value="UploadSupportWebpAction4"/>
+			</map>
+		</property>
+	</bean>
+	<bean name="UploadSupportWebpAction4" class="com.weinong.images.modules.upload.UploadSupportWebpAction4" scope="request"/>
+	<!--
+	<bean name="UploadSupportWebpAction3" class="com.weinong.images.modules.upload.UploadSupportWebpAction3" scope="request"/>
+	-->
+	<bean name="PostBodyImageAction" class="com.weinong.images.modules.upload.PostBodyImageAction" scope="request"/>
+
+
+	<bean name="UpLoadImageActionInheader" class="com.weinong.images.modules.upload.UploadImageInHeaderAction" scope="request"/>
+
+
+	<bean name="UploadSupportWebpAction" class="com.weinong.images.modules.upload.UploadSupportWebpAction" scope="request"/>
+
+	<bean name="ShowUploadInnerImageAction" class="com.weinong.images.modules.upload.ShowUploadInnerImageAction" scope="request">
+		<property name="resultMap">
+			<map>
+				<entry key="success" value="WEB-INF/pages/upload/upload-inner-image.jsp"></entry>
+			</map>
+		</property>
+	</bean>
+	<bean name="UploadImageToInnerAction" class="com.weinong.images.modules.upload.UploadImageToInnerAction" scope="request">
+		<property name="resultMap">
+			<map>
+				<entry key="error" value="json:WEB-INF/pages/upload/kindeditor-upload-result.json"></entry>
+				<entry key="success" value="json:WEB-INF/pages/upload/kindeditor-upload-result.json"></entry>
+			</map>
+		</property>
+	</bean>
+	<bean name="ListImagesAction" class="com.weinong.images.modules.upload.ListImagesAction"  scope="request">
+		<property name="resultMap">
+			<map>
+				<entry key="success" value="callback_json:WEB-INF/pages/upload/list_images.json"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean name="ShowUploadImageAction" class="com.weinong.images.modules.upload.ShowUploadImageAction" scope="request">
+		<property name="resultMap">
+			<map>
+				<entry key="success" value="WEB-INF/pages/upload/upload-image.jsp"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean name="UploadImageAction" class="com.weinong.images.modules.upload.UploadImageAction" scope="request">
+		<property name="resultMap">
+			<map>
+				<entry key="success" value="WEB-INF/pages/upload/upload-success.jsp"></entry>
+				<entry key="error" value="WEB-INF/pages/upload/upload-fail.jsp"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean name="KindEditorUploadImageAction" class="com.weinong.images.modules.upload.UploadImageAction" scope="request">
+		<property name="resultMap">
+			<map>
+				<entry key="error" value="json:WEB-INF/pages/upload/kindeditor-upload-result.json"></entry>
+				<entry key="success" value="json:WEB-INF/pages/upload/kindeditor-upload-result.json"></entry>
+			</map>
+		</property>
+	</bean>
+
+    <bean name="UploadImageToWeixinAction" class="com.weinong.images.modules.upload.UploadImageToWeixinAction" scope="request">
+        <property name="resultMap">
+            <map>
+                <entry key="error" value="json:WEB-INF/pages/upload/kindeditor-upload-result.json"></entry>
+                <entry key="success" value="json:WEB-INF/pages/upload/kindeditor-upload-result.json"></entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>

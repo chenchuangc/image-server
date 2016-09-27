@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config-nodes SYSTEM "configs.dtd">
+<config-nodes>
+
+	<node name="test" value="true"/>
+	<node name="debug" value="true"/>
+
+	<node name="image_dir" value="e:/mnt/wn518/imgs" />
+	<node name="image_http_page" value="http://localhost/" />
+	<node name="jyh-cms" value="RaXcv#Dv!jcQK5Tc$FZp00aoX%liVybg" />
+	<node name="ys-sales" value="vVz!7PY2dS3#s2dq" />
+	<node name="app_2" value="fuwuhao" />
+	<node name="fuwuhao" value="fuwuhao" />
+
+	<!-- 主库配置 -->
+	<node name="images" text="允许的IP列表（可写正则）">
+		<node name="driver" value="com.mysql.jdbc.Driver"></node>
+		<node name="url" value="jdbc:mysql://192.168.1.105:3306/weinong-images?useUnicode=true&amp;characterEncoding=utf8"></node>
+		<node name="user" value="root"></node>
+		<node name="password" value="223238"></node>
+		<node name="maxActive" value="10" />
+		<node name="maxIdle" value="600" />
+		<node name="checkTimes" value="60" />
+		<node name="queryTimeout" value="10000" />
+		<node name="allowSelect" value="true" text="不允许查询" />
+		<node name="allowUpdate" value="true" text="允许写入" />
+	</node>
+
+</config-nodes>

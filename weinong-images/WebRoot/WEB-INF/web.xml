@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name></display-name>
+	<servlet>
+		<servlet-name>yaoMVC</servlet-name>
+		<servlet-class>yao.springmvc.MVCServlet</servlet-class>
+		<init-param>
+			<param-name>initializers</param-name>
+			<param-value>com.weinong.images.core.InitListener</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>yaoMVC</servlet-name>
+		<url-pattern>*.wn</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>PurviewLoader</servlet-name>
+		<servlet-class>yao.management.purview.YaoManagement</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>http://ym.corp.wn518.com/config/yao-management.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PurviewLoader</servlet-name>
+		<url-pattern>/status.ym</url-pattern>
+	</servlet-mapping>
+</web-app>
